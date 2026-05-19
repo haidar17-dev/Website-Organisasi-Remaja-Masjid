@@ -1,0 +1,22 @@
+SEBAIKNYA TANYA PENDAPAT FAE DULU
+
+- background foto section home
+- foto section about
+- Proker
+    a. 4 Foto Proker Unggulan
+    b. Nama
+    c. Deskripsi
+- tombol bidang2 (bisa jadi nambah)
+- deskripsi bidang
+- kartu pengurus
+    a. Foto
+    b. Nama
+    c. Jabatan
+    d. Instagram
+    e. Link IG
+    f. Motto (kalau ada)
+- alumni2
+    a. Foto
+    b. Nama
+    c. Kalimatnya
+- footer bagian tahun (2026)

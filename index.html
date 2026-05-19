@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remaja Masjid SMA Negeri 1 Waru - Official Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="images/logo_remas.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.3/photoswipe.min.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="logo-container">
+            <div class="log-con">
+                <a href="https://www.sman1waru.sch.id/" target="_blank">
+                    <img src="images/sman1waru.png" class="logo" alt="Smantaru">
+                </a>
+                <img src="images/logo_remas.png" class="logo" alt="Remas">
+            </div>
+            <p style="text-align: left; font-family: sans-serif; font-size: 17px;">REMAJA MASJID <br> SMAN 1 WARU</p>
+        </div>
+        <button class="menu-toggle" id="mobile-menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <ul class="menu">
+            <li><a href="#home" class="tombol-nav">Home</a></li>
+            <li><a href="#about" class="tombol-nav">Tentang</a></li>
+            <li><a href="#proker" class="tombol-nav">Proker</a></li>
+            <li><a href="#pengurus" class="tombol-nav">Departemen</a></li>
+            <li><a href="#contacts" class="tombol-nav">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="kotak">
+
+        <!--Home-->
+        
+        <section id="home">
+            <div class="content-wrapper">
+                <img data-aos="fade-in" data-aos-duration="1000" data-aos-delay="400" class="bg" id="bg-home" src="" alt="">
+                <div class="isi-container">
+                    <h2 class="hi">
+                        <span data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="sapa" style="font-weight: 500;">
+                            REMAJA MASJID AL-HIDAYAH SMA <br> NEGERI 1 WARU PROUDLY PRESENT
+                        </span>
+                    </h2><br>
+                </div>
+            </div>
+        </section>
+
+        <!--About-->
+
+        <section style="margin-top: 30vh;" id="about" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="about-us">
+                <img id="foto-about" src="" alt="">
+                <div class="deskripsi-singkat">
+                    <h2>Tentang Kami</h2>
+                    <p>
+                        REMAS (Remaja Masjid) adalah organisasi yang dibentuk oleh siswa dan siswi beragama Islam di tingkat sekolah menengah atas di sekolah SMA Negeri 1 Waru. 
+                        Tujuannya adalah untuk mengembangkan potensi, nilai keagamaan, serta kepemimpinan siswa melalui kegiatan positif dan pembelajaran berorganisasi.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!--Proker-->
+
+        <section id="proker" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <h2 class="judul-section">Proker Unggulan</h2>
+            <div class="pswp-gallery" id="gallery-container">
+                <a class="gallery-link" data-pswp-width="1200" data-pswp-height="800" target="_blank">
+                    <img id="proker-1" src=""/>
+                    <div class="gallery-overlay">
+                        <p class="gallery-title" id="proker-nama-1"></p>
+                        <p class="gallery-desc" id="proker-desc-1"></p>
+                    </div>
+                </a>
+                <a class="gallery-link" data-pswp-width="1200" data-pswp-height="800" target="_blank">
+                    <img id="proker-2" src=""/>
+                    <div class="gallery-overlay">
+                        <p class="gallery-title" id="proker-nama-2"></p>
+                        <p class="gallery-desc" id="proker-desc-2"></p>
+                    </div>
+                </a>
+                <a class="gallery-link" data-pswp-width="1200" data-pswp-height="800" target="_blank">
+                    <img id="proker-3" src=""/>
+                    <div class="gallery-overlay">
+                        <p class="gallery-title" id="proker-nama-3"></p>
+                        <p class="gallery-desc" id="proker-desc-3"></p>
+                    </div>
+                </a>
+                <a class="gallery-link" data-pswp-width="1200" data-pswp-height="800" target="_blank">
+                    <img id="proker-4" src=""/>
+                    <div class="gallery-overlay">
+                        <p class="gallery-title" id="proker-nama-4"></p>
+                        <p class="gallery-desc" id="proker-desc-4"></p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Departemen -->
+
+        <section id="pengurus" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <h2 class="judul-section">Departemen</h2>
+            <div class="opsi-dep">
+                <ul class="menu-dep" id="wadah-tombol-bidang"></ul>
+            </div>
+            <p class="desc-dep" id="deskripsi-bidang">Memuat deskripsi...</p> 
+            
+            <div class="container-kartu" id="tempat-kartu-anggota"></div>
+        </section>
+
+        <!-- Alumni -->
+
+        <section id="alumni" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <h2 class="judul-section">Alumni</h2>
+            
+            <div class="container-kartu" id="tempat-kartu-alumni"></div>
+        </section>
+
+        <!--Contact-->
+
+        <section id="contacts" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <div class="kotak-contact">
+                <h2 class="judul-section">Contact</h2>
+                <div class="contact">
+                    <a target="_blank" href="https://www.instagram.com/remassmantaru/">
+                        <span class="logo-contact"><i class="fa-brands fa-instagram"></i></span>@remassmantaru
+                    </a>
+                    <a target="_blank" href="mailto:remasmantaru@gmail.com">
+                        <span class="logo-contact"><i class="fa-regular fa-envelope"></i></span>remassmantaru@gmail.com
+                    </a>
+                    <a target="_blank" href="https://www.youtube.com/@haidrr.17">
+                        <span class="logo-contact"><i class="fa-brands fa-youtube"></i></span>Remaja Masjid Al-Hidayah
+                    </a>
+                </div>
+            </div>
+        </section>
+        <br>
+        <div class="peta" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d790.8827277351181!2d112.75729976949205!3d-7.355038199540862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7e4d73b46fe03%3A0x674c40c110c4fd6a!2sSMA%20Negeri%201%20Waru!5e1!3m2!1sid!2sid!4v1779075913279!5m2!1sid!2sid" 
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+    <p class="footer">© <span id="tahun-footer"></span> REMAJA MASJID SMAN 1 WARU. All Rights Reserved.</p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+</body>
+</html>
+
+<!-- HTML5, CSS3, Git -->
