@@ -109,31 +109,33 @@ function prosesTabPengaturan(rows) {
 // 4. RENDER TAB ALUMNI
 // ==========================================================================
 function prosesTabAlumni(rows) {
-    const kontainerAlumni = document.getElementById('tempat-kartu-alumni'); 
+    const kontainerAlumni = document.getElementById('tempat-kartu-alumni');
     if (!kontainerAlumni) return;
-
     kontainerAlumni.innerHTML = "";
 
-    rows.forEach(row => {
+    rows.forEach((row, index) => {
         const nama = row.c[0] ? row.c[0].v : '';
         const foto = row.c[1] ? row.c[1].v : 'images/default.jpg';
         const kalimatQuote = row.c[2] ? row.c[2].v : '';
         const jabatanAngkatan = row.c[3] ? row.c[3].v : '';
 
-        // Template disesuaikan dengan class CSS .kartu asli milikmu
-        const templateAlumni = `
-            <div class="kartu">
-                <img src="${foto}" alt="Foto ${nama}" loading="lazy">
-                <div class="info-profil">
-                    <h3>${nama}</h3>
-                    <p>${jabatanAngkatan}</p><br>
-                    <a href="#">
-                        <h3 style="font-size:0.9rem; font-style:italic;">"${kalimatQuote}"</h3>
-                    </a>
-                </div>
+        const kartu = document.createElement('div');
+        kartu.classList.add('kartu');
+
+        kartu.innerHTML = `
+            <img src="${foto}" alt="Foto ${nama}" loading="lazy">
+            <div class="info-profil">
+                <h3>${nama}</h3>
+                <p>${jabatanAngkatan}</p><br>
+                <h3 style="font-size:0.9rem; font-style:italic;">"${kalimatQuote}"</h3>
             </div>
         `;
-        kontainerAlumni.innerHTML += templateAlumni;
+
+        kontainerAlumni.appendChild(kartu);
+
+        setTimeout(() => {
+            kartu.classList.add('muncul');
+        }, index * 100);
     });
 }
 
@@ -197,10 +199,8 @@ function tampilkanAnggotaPerBidang(namaBidang) {
 
         const kartu = document.createElement('div');
         kartu.classList.add('kartu');
-
-        // Delay per kartu supaya muncul bergantian
         kartu.style.animationDelay = `${index * 0.1}s`;
-        kartu.style.opacity = '0'; // sembunyikan dulu sebelum animasi
+        // ← hapus kartu.style.opacity = '0';
 
         kartu.innerHTML = `
             <img src="${anggota.foto}" alt="Foto ${anggota.nama}" loading="lazy">
@@ -214,6 +214,9 @@ function tampilkanAnggotaPerBidang(namaBidang) {
         `;
 
         kontainerKartu.appendChild(kartu);
+        setTimeout(() => {
+            kartu.classList.add('muncul');
+        }, index * 100);
     });
 }
 
