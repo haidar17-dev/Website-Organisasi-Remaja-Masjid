@@ -687,6 +687,7 @@ nav p{
     height: auto;
     align-items: center;
     justify-content: center;
+    margin: 10px;
     gap: 10px;
     font-size: 20px;
     color: var(--text-color--);
@@ -696,9 +697,7 @@ nav p{
 
 .contact a:hover{
     transform: translateY(-3px);
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 4px;
+    color: var(--primary-color);
 }
 
 .logo-contact {
