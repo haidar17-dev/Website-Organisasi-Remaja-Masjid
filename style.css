@@ -302,7 +302,7 @@ nav p{
     flex-wrap: wrap; /* Membungkus ke bawah jika layar tidak muat */
     justify-content: center; /* Posisi kartu di tengah */
     gap: 20px; /* Jarak antar kartu */
-    padding: 30px;
+    padding: 40px;
     width: 100%;
 }
 
