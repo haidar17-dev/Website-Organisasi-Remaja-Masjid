@@ -6,6 +6,7 @@
 :root {
     --bg-color--: #e8e8e8;
     --bg-color-secondary--: white;
+    --border-kartu: rgb(50, 50, 50);
     --shadow--: rgb(144, 144, 144);
     --text-color--: #b39640;
     --primary-color: black;
@@ -22,9 +23,18 @@
     :root {
         --bg-color--: rgb(24, 24, 24);
         --bg-color-secondary--: rgb(35, 35, 35);
+        --border-kartu: rgb(50, 50, 50);
         --shadow--: rgb(14, 14, 14);
         --text-color--: #b39640;
         --primary-color: white;
+    }
+
+    .kotak {
+        background-image: linear-gradient(to right bottom, #2f2f2f, #2d2d2d, #2b2b2b, #292929, #272727, #242424, #202020, #1d1d1d, #181818, #121212, #0a0a0a, #000000);
+    }
+
+    html {
+        background-image: linear-gradient(to right bottom, #2f2f2f, #2d2d2d, #2b2b2b, #292929, #272727, #242424, #202020, #1d1d1d, #181818, #121212, #0a0a0a, #000000);
     }
 
     .profile-img {
@@ -42,6 +52,9 @@
     background-image: linear-gradient(to bottom, #ffea75, #e8ce5b, #d1b341, #ba9825, #a37e00);
 }
 
+
+
+
 #projects {
     scroll-margin-top: 0vh;
 }
@@ -55,6 +68,7 @@
 }
 
 html{
+    
     font-family: 'Google Sans';
     margin: 0;
     background-color: var(--bg-color--);
@@ -103,6 +117,16 @@ nav p{
     list-style: none;
     display: flex;
     text-align: center;
+}
+
+.menu li a {
+    text-decoration: none;
+}
+
+.menu li {
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 
 .menu-dep{
@@ -178,7 +202,6 @@ nav p{
 .kotak {
     text-align: center;
     flex-wrap: wrap;
-    background-color: var(--bg-color--);
     min-height: 100vh;
     height: auto;
     width: 100%;
@@ -373,6 +396,7 @@ nav p{
 
 /* CONTAINER UTAMA */
 .about-us {
+    padding: 30px;
     display: flex;
     gap: 40px;
     max-width: 1200px;
@@ -380,7 +404,7 @@ nav p{
     font-family: sans-serif;
     flex-wrap: wrap;
     flex-shrink: 0;
-    margin-top: 70px;
+    margin-top: 50px;
 }
 
 .about-us img, .deskripsi-singkat {
@@ -445,6 +469,11 @@ nav p{
     font-weight: 800;
     margin-top: 20vh;
     margin-bottom: 20px;
+}
+
+.description-section {
+    color: var(--primary-color);
+    font-size: 20px;
 }
 
 .link {
@@ -703,6 +732,140 @@ nav p{
     margin: 0;
     text-align: left;
 }
+
+.join-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 70px;
+    max-width: 1100px;
+    padding: 60px;
+    align-items: stretch; /* ← ubah dari center */
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: var(--bg-color-secondary--);
+    border-radius: 1pc;
+    box-shadow: 1px 1px 100px 1px var(--bg-color--);
+}
+
+.join-faq, .join-info {
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* ← konten di tengah secara vertikal */
+    border-radius: 1pc;
+}
+
+.join-info {
+    justify-content: center;
+    padding: 10px;
+    align-self: flex-start;
+    top: 100px;
+}
+
+.join-judul {
+    font-size: 35px;
+    font-weight: 700;
+    color: var(--text-color--);
+}
+
+.join-desc {
+    font-size: 25px;
+    color: var(--primary-color);
+    line-height: 1.7;
+}
+
+.join-btn {
+    color: var(--primary-color);
+    font-weight: 900;
+    border-radius: 1pc;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+    transition: 0.3s ease;
+    background-color: var(--text-color--);
+    padding: 15px;
+}
+
+#join-btn-nav {
+    color: var(--primary-color);
+    font-weight: 900;
+    border-radius: 1pc;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: 0.3s ease;
+    background-color: var(--text-color--);
+    padding: 15px 30px;
+}
+
+#join-btn-nav:hover {
+    box-shadow: 1px 1px 10px 1px var(--text-color--);
+    background-color: white;
+    color: var(--text-color--);
+}
+
+.join-btn:hover {
+    box-shadow: 1px 1px 10px 1px var(--text-color--);
+    transform: translateY(-3px);
+    background-color: white;
+    color: var(--text-color--);
+}
+
+/* FAQ */
+.faq-item {
+    border-bottom: 1px solid var(--border-kartu);
+    padding: 20px;
+    background-color: var(--border-kartu);
+    margin: 3px;
+    border-radius: 1pc;
+}
+
+.faq-pertanyaan {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--primary-color);
+    padding: 14px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Google Sans';
+}
+
+.faq-icon {
+    color: var(--text-color--);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.faq-jawaban {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-jawaban p {
+    font-size: 15px;
+    color: #999;
+    line-height: 1.6;
+    padding-bottom: 14px;
+    margin: 0;
+}
+
+.faq-item.terbuka .faq-jawaban {
+    max-height: 200px;
+}
+
+.faq-item.terbuka .faq-icon {
+    transform: rotate(180deg);
+}
+
 
 
 .kotak-contact{

@@ -1,5 +1,18 @@
 console.log('YOOO');
 
+window.addEventListener('beforeunload', () => {
+    localStorage.setItem('scrollPos', window.scrollY);
+});
+
+window.addEventListener('load', () => {
+    const scrollPos = localStorage.getItem('scrollPos');
+    if (scrollPos) {
+        setTimeout(() => {
+            window.scrollTo(0, parseInt(scrollPos));
+        }, 500);
+    }
+});
+
 AOS.init();
 const mobileMenu = document.getElementById('mobile-menu');
 const menuList = document.querySelector('.menu');
@@ -80,10 +93,14 @@ function prosesTabPengaturan(rows) {
         proker_4:       getValue(12), // kolom M
         proker_nama_4:  getValue(13), // kolom N
         proker_desc_4:  getValue(14), // kolom O
-        tahun_footer:   getValue(15)  // kolom P
+        tahun_footer:   getValue(15),  // kolom P
+        link_daftar:    getValue(16)
     };
 
     console.log("Isi objek pengaturan:", pengaturan);
+
+    const btnDaftar = document.getElementById('join-button');
+    if (btnDaftar && pengaturan.link_daftar) btnDaftar.href = pengaturan.link_daftar;
 
     const imgHome = document.getElementById('bg-home');
     if (imgHome && pengaturan.bg_home) imgHome.src = pengaturan.bg_home;
@@ -189,9 +206,6 @@ function prosesTabPengurus(rows) {
     });
 
     tampilkanAnggotaPerBidang(bidangAwal);
-    if (localStorage.getItem('bidangAktif')) {
-        document.getElementById('pengurus').scrollIntoView({ behavior: 'smooth' });
-    }
 }
 
 function tampilkanAnggotaPerBidang(namaBidang) {
@@ -247,6 +261,24 @@ function inisialisasiKlikTombol() {
             tampilkanAnggotaPerBidang(this.getAttribute('data-bidang'));
         });
     });
+
+document.querySelectorAll('.faq-pertanyaan').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        item.classList.toggle('terbuka');
+    });
+});
+
+// Taruh ini di luar inisialisasiWebsite, langsung di script.js
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.faq-pertanyaan').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.closest('.faq-item');
+            item.classList.toggle('terbuka');
+        });
+    });
+});
+
 }
 
 window.addEventListener('DOMContentLoaded', inisialisasiWebsite);
