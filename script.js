@@ -148,8 +148,8 @@ function prosesTabPengurus(rows) {
         jabatan: row.c[1] ? row.c[1].v : '',
         bidang: row.c[2] ? row.c[2].v.trim() : '',
         foto: row.c[3] ? row.c[3].v : 'images/default.jpg',
-        usernameIg: row.c[4] ? row.c[4].v : '@instagram', 
-        linkIg: row.c[5] ? row.c[5].v : '#',               
+        usernameIg: row.c[4] ? row.c[4].v : '@instagram',
+        linkIg: row.c[5] ? row.c[5].v : '#',
         motto: row.c[6] ? row.c[6].v : '',
         deskripsiBidang: row.c[7] ? row.c[7].v : ''
     }));
@@ -157,15 +157,13 @@ function prosesTabPengurus(rows) {
     const daftarBidangUnik = [...new Set(semuaAnggota.map(a => a.bidang).filter(b => b !== ''))];
     const wadahTombol = document.getElementById('wadah-tombol-bidang');
     if (!wadahTombol) return;
-    
+
     wadahTombol.innerHTML = "";
 
-    // Gambar tombol adaptif secara otomatis dari data Spreadsheet
-    daftarBidangUnik.forEach((namaBidang, index) => {
-        const statusAktif = index === 0 ? 'aktif' : ''; 
+    daftarBidangUnik.forEach((namaBidang) => {
         const templateTombol = `
             <li>
-                <a href="#" class="tombol-dep ${statusAktif}" data-bidang="${namaBidang}">
+                <a href="#" class="tombol-dep" data-bidang="${namaBidang}">
                     ${namaBidang}
                 </a>
             </li>
@@ -175,8 +173,24 @@ function prosesTabPengurus(rows) {
 
     inisialisasiKlikTombol();
 
-    if (daftarBidangUnik.length > 0) {
-        tampilkanAnggotaPerBidang(daftarBidangUnik[0]);
+    // Ambil bidang tersimpan dari localStorage
+    const bidangTersimpan = localStorage.getItem('bidangAktif');
+    const bidangAwal = bidangTersimpan && daftarBidangUnik.includes(bidangTersimpan)
+        ? bidangTersimpan
+        : daftarBidangUnik[0];
+
+    // Set tombol aktif sesuai bidang tersimpan
+    document.querySelectorAll('.tombol-dep').forEach(t => {
+        if (t.getAttribute('data-bidang') === bidangAwal) {
+            t.classList.add('aktif');
+        } else {
+            t.classList.remove('aktif');
+        }
+    });
+
+    tampilkanAnggotaPerBidang(bidangAwal);
+    if (localStorage.getItem('bidangAktif')) {
+        document.getElementById('pengurus').scrollIntoView({ behavior: 'smooth' });
     }
 }
 
@@ -221,16 +235,16 @@ function tampilkanAnggotaPerBidang(namaBidang) {
 }
 
 function inisialisasiKlikTombol() {
-    // Karena tombol digambar secara dinamis, selector harus membaca ulang DOM setelah tombol di-render
     document.querySelectorAll('.tombol-dep').forEach(tombol => {
         tombol.addEventListener('click', function(e) {
-            e.preventDefault(); 
-
+            e.preventDefault();
             document.querySelectorAll('.tombol-dep').forEach(t => t.classList.remove('aktif'));
             this.classList.add('aktif');
 
-            const targetBidang = this.getAttribute('data-bidang');
-            tampilkanAnggotaPerBidang(targetBidang);
+            // Simpan bidang yang dipilih ke localStorage
+            localStorage.setItem('bidangAktif', this.getAttribute('data-bidang'));
+
+            tampilkanAnggotaPerBidang(this.getAttribute('data-bidang'));
         });
     });
 }
