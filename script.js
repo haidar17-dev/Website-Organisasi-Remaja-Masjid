@@ -233,8 +233,8 @@ function tampilkanAnggotaPerBidang(namaBidang) {
         kartu.innerHTML = `
             <img src="${anggota.foto}" alt="Foto ${anggota.nama}" loading="lazy">
             <div class="info-profil">
-                <h3>${anggota.nama}</h3>
-                <p>${anggota.jabatan}${infoMotto}</p><br>
+                <h3 class="jabatan">${anggota.nama}</h3>
+                <h3>${anggota.jabatan}${infoMotto}</h3><br>
                 <a target="_blank" href="${anggota.linkIg}">
                     <h3>${anggota.usernameIg}</h3>
                 </a>
