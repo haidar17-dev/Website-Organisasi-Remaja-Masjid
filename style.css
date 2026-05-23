@@ -2,27 +2,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
 
-/* Light Theme  */
-:root {
-    --bg-color--: #e8e8e8;
-    --bg-color-secondary--: white;
-    --border-kartu: rgb(50, 50, 50);
-    --shadow--: rgb(144, 144, 144);
-    --text-color--: #b39640;
-    --primary-color: black;
+@media (prefers-color-scheme: light) {
+    /* Light Theme  */
+    :root {
+        --bg-color--: #e8e8e8;
+        --bg-color-secondary--: white;
+        --border-kartu: rgb(50, 50, 50);
+        --shadow--: rgb(144, 144, 144);
+        --text-color--: #b39640;
+        --primary-color: black;
+    }
+
+    .faq-item {
+        border: 1px solid black;
+    }
+
+    .kotak, html {
+        background-image: linear-gradient(to right bottom, #ffffff, #f1f1f1, #e3e3e3, #d5d5d5, #c7c7c7);
+        background-repeat: none;
+    }
 }
 
-.faq-item {
-    border: 1px solid black;
-}
-
-.about-us img {
-    box-shadow: 1px 1px 100px 1px white;
-}
-
-.kotak, html {
-    background-image: linear-gradient(to right bottom, #ffffff, #f3f3f3, #e6e6e6, #dadada, #cecece);
-}
 /* Detect Dark Theme */
 @media (prefers-color-scheme: dark) {
     :root {
@@ -35,8 +35,13 @@
     }
 
     .kotak, html {
-        background-image: linear-gradient(to right bottom, #2f2f2f, #2d2d2d, #2b2b2b, #292929, #272727, #242424, #202020, #1d1d1d, #181818, #121212, #0a0a0a, #000000);
+        background-image: radial-gradient(circle, #2f2f2f, #2d2d2d, #2b2b2b, #292929, #272727, #161515, #202020, #1d1d1d, #181818, #121212, #0a0a0a, #000000);
+        background-repeat: none;
     }
+}
+
+#home, #about, #proker, #pengurus, #contact, #join {
+    scroll-margin-top: 10vh;
 }
 
 .gold-text {
@@ -47,9 +52,6 @@
     font-weight: 900;
     background-image: linear-gradient(to bottom, #ffea75, #e8ce5b, #d1b341, #ba9825, #a37e00);
 }
-
-
-
 
 #projects {
     scroll-margin-top: 0vh;
@@ -229,7 +231,7 @@ nav p{
     height: 100%;
     object-fit: cover; /* Gambar proporsional memenuhi kontainer tanpa gepeng */
     z-index: 1;
-    filter: brightness(50%);
+    filter: brightness(55%);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -272,16 +274,6 @@ nav p{
 .desc span {
     padding: 0px 2px 0px 2px;
     border-radius: 5px;
-}
-
-.about {
-    margin-top: 50px;
-    background-color: #f0f0f0;
-    height: auto;
-    min-height: 10vh;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
 }
 
 #books {
@@ -426,7 +418,7 @@ nav p{
     line-height: 1.2;
     font-weight: 900;
     font-family: 'Poppins';
-    font-size: 30px;
+    font-size: 35px;
     text-align: left;
 }
 
@@ -435,7 +427,7 @@ nav p{
     line-height: 1.2;
     font-weight: 400;
     font-family: 'Poppins';
-    font-size: 20px;
+    font-size: 25px;
     text-align: left;
 }
 
@@ -594,6 +586,10 @@ nav p{
 
 
 @media (max-width: 630px) {
+    .about-us {
+        margin-top: 50px;
+    }
+
     .bg {
         border-bottom-left-radius: 70% 20px;
         border-bottom-right-radius: 70% 20px;
@@ -673,7 +669,7 @@ nav p{
 
     .content-wrapper {
         justify-content: center;
-        margin-top: 35vh;
+        margin-top: 450px;
         flex-direction: row;
     }
 }
@@ -696,7 +692,7 @@ nav p{
     background-color: var(--bg-color-secondary--);
     border: 1px solid var(--border-kartu) ;
     border-radius: 8px;
-    padding: 30px;
+    padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .benefit-header {
@@ -709,7 +705,6 @@ nav p{
     line-height: 1.7;
     color: var(--text-color--);
     font-size: 30px;
-    background-color: var(--bg-color--);
     aspect-ratio: 1/1;
     border-radius: 20%;
     width: 50px;
