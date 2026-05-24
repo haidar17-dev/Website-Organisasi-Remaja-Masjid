@@ -30,12 +30,8 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Ini setting data universal
-
-// ==========================================================================
-// 1. KONFIGURASI DATABASE GOOGLE SPREADSHEET
-// ==========================================================================
-const SHEET_ID = '19OuNKXlcTieJVIsoZh-WHN3Unmlb7NYgO6pq-soVWYE'; // Gantilah dengan ID Spreadsheet-mu
+// Spreadsheet
+const SHEET_ID = '19OuNKXlcTieJVIsoZh-WHN3Unmlb7NYgO6pq-soVWYE';
 
 let semuaAnggota = [];
 
@@ -48,9 +44,6 @@ async function fetchDataDariSheet(namaSheet) {
     return jsonMurni.table.rows;
 }
 
-// ==========================================================================
-// 2. INITIALIZATION ON LOAD
-// ==========================================================================
 async function inisialisasiWebsite() {
     try {
         const [rowsPengurus, rowsAlumni, rowsPengaturan] = await Promise.all([
@@ -68,9 +61,6 @@ async function inisialisasiWebsite() {
     }
 }
 
-// ==========================================================================
-// 3. RENDER TAB PENGATURAN WEB (Statis & Gambar Global)
-// ==========================================================================
 function prosesTabPengaturan(rows) {
     if (!rows || rows.length === 0) return;
 
@@ -122,9 +112,7 @@ function prosesTabPengaturan(rows) {
     if (textTahun && pengaturan.tahun_footer) textTahun.innerText = pengaturan.tahun_footer;
 }
 
-// ==========================================================================
-// 4. RENDER TAB ALUMNI
-// ==========================================================================
+// ALumni
 function prosesTabAlumni(rows) {
     const kontainerAlumni = document.getElementById('tempat-kartu-alumni');
     if (!kontainerAlumni) return;
@@ -156,9 +144,7 @@ function prosesTabAlumni(rows) {
     });
 }
 
-// ==========================================================================
-// 5. RENDER TAB PENGURUS (Sistem Tombol Adaptif & Filter)
-// ==========================================================================
+// Pengurus
 function prosesTabPengurus(rows) {
     semuaAnggota = rows.map(row => ({
         nama: row.c[0] ? row.c[0].v : '',
@@ -190,13 +176,11 @@ function prosesTabPengurus(rows) {
 
     inisialisasiKlikTombol();
 
-    // Ambil bidang tersimpan dari localStorage
     const bidangTersimpan = localStorage.getItem('bidangAktif');
     const bidangAwal = bidangTersimpan && daftarBidangUnik.includes(bidangTersimpan)
         ? bidangTersimpan
         : daftarBidangUnik[0];
 
-    // Set tombol aktif sesuai bidang tersimpan
     document.querySelectorAll('.tombol-dep').forEach(t => {
         if (t.getAttribute('data-bidang') === bidangAwal) {
             t.classList.add('aktif');
@@ -228,7 +212,6 @@ function tampilkanAnggotaPerBidang(namaBidang) {
         const kartu = document.createElement('div');
         kartu.classList.add('kartu');
         kartu.style.animationDelay = `${index * 0.1}s`;
-        // ← hapus kartu.style.opacity = '0';
 
         kartu.innerHTML = `
             <img src="${anggota.foto}" alt="Foto ${anggota.nama}" loading="lazy">
@@ -255,7 +238,7 @@ function inisialisasiKlikTombol() {
             document.querySelectorAll('.tombol-dep').forEach(t => t.classList.remove('aktif'));
             this.classList.add('aktif');
 
-            // Simpan bidang yang dipilih ke localStorage
+           
             localStorage.setItem('bidangAktif', this.getAttribute('data-bidang'));
 
             tampilkanAnggotaPerBidang(this.getAttribute('data-bidang'));
@@ -269,7 +252,7 @@ document.querySelectorAll('.faq-pertanyaan').forEach(btn => {
     });
 });
 
-// Taruh ini di luar inisialisasiWebsite, langsung di script.js
+
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.faq-pertanyaan').forEach(btn => {
         btn.addEventListener('click', () => {
