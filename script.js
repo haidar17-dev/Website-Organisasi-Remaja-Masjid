@@ -31,7 +31,7 @@ window.addEventListener('scroll', () => {
 });
 
 // Spreadsheet
-const SHEET_ID = '19OuNKXlcTieJVIsoZh-WHN3Unmlb7NYgO6pq-soVWYE';
+const SHEET_ID = '1anwvCde6QUbHdyn4-yOHc-I3K0WlI3AiS663UF6tqvE';
 
 let semuaAnggota = [];
 
